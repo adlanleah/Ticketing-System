@@ -1,0 +1,28 @@
+{
+  "name": "exhibition-ticketing-system",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Its a ticketing and attendance system for a VU exhibition",
+  "main": "index.js",
+  "scripts": {
+    "fullstack": "concurrently \"npm run Frontend\" \"npm run Backend\"",
+    "Frontend": "cd \"Frontend\" && npm run dev",
+    "Backend": "nodemon Backend/index.js"
+  },
+  "author": "Adlan Leah Kirumira",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "concurrently": "^9.1.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.3",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  }
+}
