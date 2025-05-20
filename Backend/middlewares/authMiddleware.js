@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import ErrorResponse from '../utils/errorResponse';
-import User from '../models/User';
+import ErrorResponse from '../utils/Error.js';
+import User from '../models/userModel';
 
 // Protect routes
 export const protect = async (req, res, next) => {

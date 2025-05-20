@@ -1,4 +1,4 @@
-import User from '../models/User';
+import User from '../models/userModel.js';
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
 

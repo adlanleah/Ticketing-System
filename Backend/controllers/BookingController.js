@@ -1,14 +1,15 @@
-import Booking from '../models/Booking';
-import Session from '../models/Session';
-import Ticket from '../models/Ticket';
-import asyncHandler from '../middleware/async';
-import ErrorResponse from '../utils/Error';
-import generateQR from '../utils/generateTicket';
+import Booking from '../models/BookingModel.js';
+import Session from '../models/SessionModel.js';
+import Ticket from '../models/TicketModel.js';
+import asyncHandler from '../middlewares/async.js';
+import ErrorResponse from '../utils/Error.js';
+import generateQR from '../utils/GenerateTicket.js';
 
 
 export const getSeatAvailability = asyncHandler(async (req, res, next) => {
     const { event, session, date } = req.query;
 
+    
     if (!event || !session || !date) {
         return next(new ErrorResponse('Please provide event, session and date', 400));
     }
@@ -31,6 +32,7 @@ export const getSeatAvailability = asyncHandler(async (req, res, next) => {
         }
     });
 });
+
 
 
 export const createBooking = asyncHandler(async (req, res, next) => {
@@ -72,4 +74,47 @@ export const createBooking = asyncHandler(async (req, res, next) => {
 export const getUserBookings = asyncHandler(async (req, res, next) => {
     const bookings = await Booking.find({ user: req.params.userId }).populate('event session');
     res.status(200).json({ success: true, data: bookings });
+});
+
+// Add these functions to your BookingController.js file
+
+export const getEventBookings = asyncHandler(async (req, res, next) => {
+    const bookings = await Booking.find({ event: req.params.eventId })
+        .populate('user', 'name email')
+        .populate('session');
+
+    res.status(200).json({
+        success: true,
+        count: bookings.length,
+        data: bookings
+    });
+});
+
+export const getAllBookings = asyncHandler(async (req, res, next) => {
+    const bookings = await Booking.find()
+        .populate('user', 'name email')
+        .populate('event', 'name')
+        .populate('session');
+
+    res.status(200).json({
+        success: true,
+        count: bookings.length,
+        data: bookings
+    });
+});
+
+export const getBooking = asyncHandler(async (req, res, next) => {
+    const booking = await Booking.findById(req.params.id)
+        .populate('user', 'name email')
+        .populate('event')
+        .populate('session');
+
+    if (!booking) {
+        return next(new ErrorResponse(`Booking not found with id of ${req.params.id}`, 404));
+    }
+
+    res.status(200).json({
+        success: true,
+        data: booking
+    });
 });

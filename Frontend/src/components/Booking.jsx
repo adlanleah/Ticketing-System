@@ -37,11 +37,13 @@ const Booking = () => {
         setLoading(prev => ({ ...prev, events: true }));
         const res = await axios.get('/api/events/active');
         setEvents(res.data.data);
-        if (res.data.data.length > 0) {
+        if (Array.isArray(res.data?.data) && res.data.data.length > 0) {
           setFormData(prev => ({ ...prev, event: res.data.data[0]._id }));
         }
+
       } catch (err) {
         setError(err.response?.data?.message || 'Failed to fetch events');
+        console.log(err)
       } finally {
         setLoading(prev => ({ ...prev, events: false }));
       }
@@ -251,10 +253,12 @@ const Booking = () => {
               >
                 {loading.events ? (
                   <option>Loading events...</option>
-                ) : (
+                ) : Array.isArray(events) && events.length > 0 ? (
                   events.map(event => (
                     <option key={event._id} value={event._id}>{event.title}</option>
                   ))
+                ) : (
+                  <option>No events available</option>
                 )}
               </select>
             </div>
@@ -282,7 +286,7 @@ const Booking = () => {
               >
                 {loading.sessions ? (
                   <option>Loading sessions...</option>
-                ) : sessions.length > 0 ? (
+                ) : Array.isArray(sessions) && sessions.length > 0 ? (
                   sessions.map(session => (
                     <option key={session._id} value={session._id}>
                       {session.name} ({session.timeSlot})

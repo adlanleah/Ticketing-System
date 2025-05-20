@@ -34,7 +34,7 @@ const Home = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Victoria University's Annual Exhibition</h1>
           <p className="text-xl mb-6">Join us for a showcase of innovation, research, and talent from our vibrant academic community.</p>
           <Link 
-            to="/book" 
+            to="/bookings" 
             className="bg-accent text-primary font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition inline-block"
           >
             Book Your Seat Now

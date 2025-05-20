@@ -1,7 +1,7 @@
-import Event from '../models/Event';
-import Session from '../models/Session';
-import asyncHandler from '../middleware/async';
-import ErrorResponse from '../utils/Error';
+import Event from '../models/EventModel.js';
+import Session from '../models/SessionModel.js';
+import asyncHandler from '../middlewares/async.js';
+import ErrorResponse from '../utils/Error.js';
 
 export const getActiveEvents = asyncHandler(async (req, res, next) => {
     const events = await Event.find({ isActive: true });

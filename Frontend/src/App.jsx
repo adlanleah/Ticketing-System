@@ -64,7 +64,7 @@ function App() {
               } />
               
               {/* Common Routes */}
-              <Route path="/book" element={<Booking />} />
+              <Route path="/bookings" element={<Booking />} />
               <Route path="/ticket/:id" element={<Ticket />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />

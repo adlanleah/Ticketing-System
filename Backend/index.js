@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-// import errorHandler from './middleware/error';
+import errorHandler from './middlewares/error.js';
 
 // Import routes
 import authRoutes from './routes/AuthRoutes.js';
@@ -24,8 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Database connection
-const db = require('./config/db');
-db.connect();
+import db from './config/db.js';
+db();
 
 // Routes
 app.use('/api/auth', authRoutes);
