@@ -40,12 +40,11 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
   const response = await axios.post('/api/auth/login', { email, password });
-  console.log('Login Response:', response.data);
   const token = response.data.token;
-  const user = response.data.data.user; 
+  const user = response.data.data.user; // Ensure this includes the role
   localStorage.setItem('token', token);
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  setCurrentUser (user); 
+  setCurrentUser (user); // Check if user has the correct role
 };
 
   // Logout function

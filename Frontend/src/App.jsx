@@ -19,12 +19,15 @@ import './index.css'
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { currentUser } = useAuth();
   console.log('User  Role in ProtectedRoute:', currentUser ?.role);
+  console.log('Allowed Roles:', allowedRoles);
   
   if (!currentUser) {
+    console.log('Redirecting to login: No current user');
     return <Navigate to="/login" />;
   }
   
   if (allowedRoles && !allowedRoles.includes(currentUser.role)) {
+    console.log('Redirecting to homepage: User role not allowed');
     return <Navigate to="/" />;
   }
   
@@ -78,5 +81,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
