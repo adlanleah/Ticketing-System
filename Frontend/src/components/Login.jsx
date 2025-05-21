@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext'; 
+import { useAuth } from '../components/AuthContext'; 
 import axios from 'axios';
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(formData.email, formData.password);

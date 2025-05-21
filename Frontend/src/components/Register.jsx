@@ -30,10 +30,12 @@ const Register = () => {
     }
     
     try {
-      const response = await axios.post('/api/auth/register', formData);
+      const response = await axios.post('/api/auth/register', {
+        ...formData,
+       role: formData.userType});
 
       console.log('Registration successful:', response.data);
-      navigate('/dashboard'); // Redirect to dashboard 
+      navigate('/dashboard'); 
     } catch (error) {
       console.error('Registration error:', error.response?.data?.message || error.message);
     }
@@ -87,8 +89,8 @@ const Register = () => {
               required
             >
               <option value="guest">Guest</option>
-              <option value="student">Event Organizer</option>
-              <option value="student">Admin</option>
+              <option value="organizer">Event Organizer</option>
+              <option value="admin">Admin</option>
             </select>
           </div>
           {formData.userType === 'guest' && (
