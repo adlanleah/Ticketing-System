@@ -2,7 +2,7 @@ import Booking from '../models/BookingModel.js';
 import Session from '../models/SessionModel.js';
 import Ticket from '../models/TicketModel.js';
 import asyncHandler from '../middlewares/async.js';
-import ErrorResponse from '../utils/Error.js';
+import ErrorResponse from '../utils/ErrorResponse.js';
 import generateQR from '../utils/GenerateTicket.js';
 
 

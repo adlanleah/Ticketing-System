@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import ErrorResponse from '../utils/Error.js';
+import ErrorResponse from '../utils/ErrorResponse';
 import User from '../models/userModel';
 
 // Protect routes
