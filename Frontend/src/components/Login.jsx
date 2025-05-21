@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext'; // ✅ Import useAuth
+import { useAuth } from './AuthContext'; 
 import axios from 'axios';
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
     password: ''
   });
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ Destructure login from context
+  const { login } = useAuth(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +22,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ✅ Use login from AuthContext
       await login(formData.email, formData.password);
       navigate('/dashboard');
     } catch (error) {
