@@ -48,14 +48,12 @@ export const register = async (req, res, next) => {
 
    export const login = async (req, res, next) => {
        try {
-           const { email, password } = req.body; // Only extract email and password
+           const { email, password } = req.body; 
 
-           // Check if email and password are provided
            if (!email || !password) {
                return next(new ErrorResponse('Please provide email and password', 400));
            }
 
-           // Find user by email
            const user = await User.findOne({ email }).select('+password');
 
            if (!user || !(await user.matchPassword(password))) {

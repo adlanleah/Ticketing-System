@@ -18,6 +18,7 @@ import './index.css'
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { currentUser } = useAuth();
+  console.log('User  Role in ProtectedRoute:', currentUser ?.role);
   
   if (!currentUser) {
     return <Navigate to="/login" />;

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const AdminDashboard = () => {
+  console.log('Admin Dashboard Rendered');
   const { currentUser } = useAuth();
   const [stats, setStats] = useState(null);
   const [users, setUsers] = useState([]);
@@ -19,17 +20,19 @@ const AdminDashboard = () => {
 
   // Fetch dashboard stats
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        setLoading(prev => ({ ...prev, stats: true }));
-        const res = await axios.get('/admin/stats');
-        setStats(res.data.data);
-      } catch (err) {
-        setError(err.response?.data?.message || 'Failed to fetch statistics');
-      } finally {
-        setLoading(prev => ({ ...prev, stats: false }));
-      }
-    };
+       const fetchStats = async () => {
+     try {
+       setLoading(prev => ({ ...prev, stats: true }));
+       const res = await axios.get('/admin/stats');
+       console.log('Stats Response:', res.data); // Log the response
+       setStats(res.data.data);
+     } catch (err) {
+       setError(err.response?.data?.message || 'Failed to fetch statistics');
+     } finally {
+       setLoading(prev => ({ ...prev, stats: false }));
+     }
+   };
+   
 
     if (activeTab === 'overview') {
       fetchStats();
