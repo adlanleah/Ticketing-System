@@ -42,9 +42,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               
-              {/* Guest/Student Routes */}
+              {/* Guest Routes */}
               <Route path="/dashboard" element={
-                <ProtectedRoute allowedRoles={['guest', 'student']}>
+                <ProtectedRoute allowedRoles={['guest']}>
                   <GuestDashboard />
                 </ProtectedRoute>
               } />

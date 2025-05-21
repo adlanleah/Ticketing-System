@@ -88,6 +88,7 @@ const Register = () => {
             >
               <option value="guest">Guest</option>
               <option value="student">Event Organizer</option>
+              <option value="student">Admin</option>
             </select>
           </div>
           {formData.userType === 'guest' && (
