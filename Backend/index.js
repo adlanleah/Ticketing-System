@@ -18,6 +18,7 @@ const app = express();
 // Middleware for local
 app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    //origin: 'https://ticketing-system-snowy.vercel.app',
     credentials: true
 }));
 
