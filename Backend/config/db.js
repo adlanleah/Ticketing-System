@@ -33,9 +33,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file for local development
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config();
-}
+dotenv.config();
 
 const mongoUri = process.env.MONGO_URI; 
 console.log('MONGO_URI:', mongoUri);  
@@ -54,4 +52,5 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
 
