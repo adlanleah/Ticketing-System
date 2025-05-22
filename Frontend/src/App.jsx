@@ -14,6 +14,10 @@ import OrganizerReports from './components/Reports';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './index.css'
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+axios.defaults.withCredentials = true;
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
