@@ -6,17 +6,17 @@ const Home = () => {
     {
       title: "Innovation Showcase",
       description: "Discover groundbreaking projects from our students",
-      image: "/src/images/inno.jpg"
+      image: "/images/inno.jpg"
     },
     {
       title: "Career Opportunities",
       description: "Connect with top employers in various industries",
-      image: "/src/images/career.jpg"
+      image: "/images/career.jpg"
     },
     {
       title: "Research Presentations",
       description: "Learn about cutting-edge research from our faculty",
-      image: "/src/images/present.jpg"
+      image: "/images/present.jpg"
     },
   ];
 
