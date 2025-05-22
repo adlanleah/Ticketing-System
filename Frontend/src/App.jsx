@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import './index.css'
 import axios from 'axios';
 
+axios.defaults.baseURL = 'https://your-backend.onrender.com';
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
