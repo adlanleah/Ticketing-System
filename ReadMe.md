@@ -49,3 +49,13 @@ To run concurrently: npm run fullstack
 To run backend individually: nodemon index.js
 To run frontend individually: npm run dev
 Note: Make sure to follow the exact steps mentioned above to avoid any errors or issues.
+
+
+
+,
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "https://your-backend-url.onrender.com/api/:path*"
+        }
+    ]
