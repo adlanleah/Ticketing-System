@@ -9,7 +9,7 @@ Email Notifications: Send automated emails for event registrations and bookings,
 Attendee Tracking: Keep track of attendees and monitor check-in and check-out times.
 Admin Management: Product managers can add admins that can create and manage events.
 Technologies Used
-Raect.js:  
+Raect.js: A javaScript library used to build user interfaces.
 Tailwind CSS: A utility-first CSS framework for building responsive and customizable user interfaces.
 JavaScript: A programming language used for client-side and server-side scripting.
 Node.js: A JavaScript runtime environment used for building scalable and efficient server-side applications.
