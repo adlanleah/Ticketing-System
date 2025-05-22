@@ -18,7 +18,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 axios.defaults.withCredentials = true;
-console.log('BASE URL:', process.env.REACT_APP_API_BASE_URL);
+
+console.log("BASE URL:", process.env.REACT_APP_API_BASE_URL);
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
