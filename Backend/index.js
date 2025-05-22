@@ -16,17 +16,10 @@ dotenv.config();
 const app = express();
 
 // Middleware for local
-/*app.use(cors({
+app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:3000',
     credentials: true
-}));*/
-
-//For deployment
-app.use(cors({
-    origin: ["https://"],
-    methods: ["POST", "GET"],
-    credentials: true
-}))
+}));
 
 
 app.use(express.json());
