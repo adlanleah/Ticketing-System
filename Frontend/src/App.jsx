@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 import './index.css'
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+axios.defaults.baseURL = baseURL || 'https://ticketing-system-sul2.onrender.com';
 axios.defaults.withCredentials = true;
 
 console.log("BASE URL:", process.env.REACT_APP_API_BASE_URL);
