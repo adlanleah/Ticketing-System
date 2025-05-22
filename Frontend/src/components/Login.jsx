@@ -20,14 +20,20 @@ const Login = () => {
   };
 
  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await login(formData.email, formData.password);
+  e.preventDefault();
+  try {
+    const user = await login(formData.email, formData.password); 
+    if (user?.role === 'admin') {
+      navigate('/admin');
+    } else if (user?.role === 'organizer') {
+      navigate('/organizer');
+    } else {
       navigate('/dashboard');
-    } catch (error) {
-      console.error('Login error:', error.response?.data?.message || error.message);
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error.response?.data?.message || error.message);
+  }
+};
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-md">
